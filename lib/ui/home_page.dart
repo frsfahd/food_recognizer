@@ -3,10 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:food_recognizer/controller/home_provider.dart';
 import 'package:food_recognizer/controller/image_classification_provider.dart';
+import 'package:food_recognizer/ui/result_page.dart';
 
-import 'package:food_recognizer/util/helper.dart';
 import 'package:food_recognizer/util/widgets_extension.dart';
-import 'package:food_recognizer/widget/classification_item.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -77,22 +76,6 @@ class _HomeViewState extends State<_HomeView> {
                 spacing: 8,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Consumer<ImageClassificationViewmodel>(
-                    builder: (context, value, child) {
-                      final classifications = value.classifications.entries;
-
-                      if (classifications.isEmpty) {
-                        return const SizedBox.shrink();
-                      }
-
-                      // return SizedBox.shrink();
-
-                      return ClassificationItem(
-                        item: value.classifications.keys.first,
-                        value: toPercentage(value.classifications.values.first),
-                      );
-                    },
-                  ),
                   Row(
                     spacing: 8,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -122,17 +105,14 @@ class _HomeViewState extends State<_HomeView> {
                   FilledButton.tonal(
                     onPressed: () {
                       final homeProvider = context.read<HomeProvider>();
-                      final imageProvider = context
-                          .read<ImageClassificationViewmodel>();
 
                       final image = homeProvider.imageFile;
 
                       if (image != null) {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => ResultPage()),
-                        // );
-                        imageProvider.runClassificationFromImage(image);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ResultPage()),
+                        );
                       } else {
                         homeProvider.message = "choose image to analyze !";
                       }

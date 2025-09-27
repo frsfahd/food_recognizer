@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recognizer/ui/result_page.dart';
+import 'package:food_recognizer/ui/details_page.dart';
 
 class ClassificationItem extends StatelessWidget {
   final String item;
@@ -14,9 +14,9 @@ class ClassificationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        // borderRadius: BorderRadius.circular(12),
         color: Theme.of(context).colorScheme.primaryContainer,
       ),
       child: Row(
@@ -30,7 +30,9 @@ class ClassificationItem extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ResultPage()),
+                MaterialPageRoute(
+                  builder: (context) => DetailsPage(mealName: item),
+                ),
               );
             },
             label: Text("Details..."),

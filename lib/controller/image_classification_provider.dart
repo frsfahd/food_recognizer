@@ -16,7 +16,7 @@ class ImageClassificationViewmodel extends ChangeNotifier {
     (_classifications.entries.toList()
           ..sort((a, b) => a.value.compareTo(b.value)))
         .reversed
-        .take(1),
+        .take(5),
   );
 
   Future<void> runClassificationFromImage(XFile image) async {
