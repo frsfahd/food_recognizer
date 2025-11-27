@@ -1,16 +1,12 @@
 # food_recognizer
 
-A new Flutter project.
+food recognizer app with Flutter, LiteRT, Firebase ML, and MealDB
 
-## Getting Started
+## Features
+- [x] automatically update the model via Firebase ML
+- [x] capture an image via camera or gallery
+- [x] analyze the image
+- [x] get its recipes
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+![Food Recognizer](https://github.com/user-attachments/assets/0355136c-ee73-4f54-a642-15985a1a24e6)
